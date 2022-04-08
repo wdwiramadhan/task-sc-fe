@@ -61,10 +61,10 @@ export const Card = ({ data, handleFavorite }: CardProps) => {
 export const CardLoading = () => {
   return (
     <div className="flex flex-col animate-pulse">
-      <div className="h-[300px] bg-gray-200 rounded-md"></div>
+      <div className="h-[280px] bg-gray-200 rounded-md"></div>
       <div className="flex flex-col py-2 gap-2">
-        <div className="h-4 bg-gray-200 rounded-sm"></div>
-        <div className="h-4 bg-gray-200 rounded-sm"></div>
+        <div className="h-3 bg-gray-200 rounded-sm"></div>
+        <div className="h-3 bg-gray-200 rounded-sm"></div>
       </div>
     </div>
   );
