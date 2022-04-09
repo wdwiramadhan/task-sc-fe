@@ -2,7 +2,7 @@ import { Listbox } from "@headlessui/react";
 import { Option } from "../../types/Category";
 
 interface SelectProps {
-  value: Option;
+  value: Option | undefined;
   setValue: (item: Option) => void;
   options: Array<Option>;
   isDisabled?: boolean;
@@ -19,7 +19,7 @@ export const Select = ({
       {({ open }) => (
         <div className="relative z-10">
           <Listbox.Button className="bg-gray-100 text-sm text-gray-800 w-full text-left px-5 py-2.5 rounded-full flex justify-between items-center">
-            <span>{value.label}</span>
+            <span>{value?.label}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"

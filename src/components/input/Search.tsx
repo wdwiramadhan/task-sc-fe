@@ -1,7 +1,9 @@
+import { ChangeEventHandler } from "react";
+
 interface SearchProps {
   value: string;
   isDisabled?: boolean;
-  setValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setValue: ChangeEventHandler<HTMLInputElement>;
 }
 
 export const Search = ({ value, setValue, isDisabled }: SearchProps) => {

@@ -8,10 +8,9 @@ import Pagination from "../components/pagination/Pagination";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState<Option>({
-    label: "",
-    value: "",
-  });
+  const [selectedCategory, setSelectedCategory] = useState<Option | undefined>(
+    undefined
+  );
   const [showBooks, setShowBooks] = useState<Book[]>([]);
   const [page, setPage] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
@@ -19,7 +18,7 @@ export default function Home() {
   const [favorites, setFavorites] = useLocalStorage<Book[]>("favorite", []);
   const { categories, isLoading: isCategoryLoading } = useCategories();
   const { books, setBooks, isLoading } = useBook({
-    categoryId: selectedCategory.value as string,
+    categoryId: selectedCategory?.value as string,
   });
   const size = 12;
 
