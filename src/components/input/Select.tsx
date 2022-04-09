@@ -5,13 +5,19 @@ interface SelectProps {
   value: Option;
   setValue: (item: Option) => void;
   options: Array<Option>;
+  isDisabled?: boolean;
 }
 
-export const Select = ({ value, setValue, options }: SelectProps) => {
+export const Select = ({
+  value,
+  setValue,
+  options,
+  isDisabled,
+}: SelectProps) => {
   return (
-    <Listbox value={value} onChange={setValue}>
+    <Listbox value={value} disabled={isDisabled ?? false} onChange={setValue}>
       {({ open }) => (
-        <div className="relative">
+        <div className="relative z-10">
           <Listbox.Button className="bg-gray-100 text-sm text-gray-800 w-full text-left px-5 py-2.5 rounded-full flex justify-between items-center">
             <span>{value.label}</span>
             <svg

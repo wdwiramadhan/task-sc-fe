@@ -3,11 +3,11 @@ import ReactPaginate from "react-paginate";
 import "./style.css";
 
 interface PaginationProps {
-  handleChange: any;
+  handlePageChange: ({ selected }: { selected: number }) => void;
   totalPages: number;
 }
 
-const Pagination = ({ handleChange, totalPages }: PaginationProps) => {
+const Pagination = ({ handlePageChange, totalPages }: PaginationProps) => {
   return (
     <ReactPaginate
       breakLabel="..."
@@ -23,7 +23,7 @@ const Pagination = ({ handleChange, totalPages }: PaginationProps) => {
       renderOnZeroPageCount={undefined}
       containerClassName="paginate"
       activeClassName="active"
-      onPageChange={handleChange}
+      onPageChange={handlePageChange}
     />
   );
 };

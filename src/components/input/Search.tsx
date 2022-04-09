@@ -1,15 +1,17 @@
 interface SearchProps {
   value: string;
-  setValue: (e: any) => void;
+  isDisabled?: boolean;
+  setValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Search = ({ value, setValue }: SearchProps) => {
+export const Search = ({ value, setValue, isDisabled }: SearchProps) => {
   return (
     <div className="relative">
       <input
         type="text"
         value={value}
         onChange={setValue}
+        disabled={isDisabled ?? false}
         placeholder="Search..."
         className="w-full border-[1px] border-gray-300 focus:outline-gray-300 focus:bg-gray-50 rounded-full text-sm text-gray-800 text-left pl-5 pr-16 py-2"
       />

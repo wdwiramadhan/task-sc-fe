@@ -17,7 +17,7 @@ export default function Home() {
   const [totalPage, setTotalPage] = useState(0);
   const [search, setSearch] = useState("");
   const [favorites, setFavorites] = useLocalStorage<Book[]>("favorite", []);
-  const { categories } = useCategories();
+  const { categories, isLoading: isCategoryLoading } = useCategories();
   const { books, setBooks, isLoading } = useBook({
     categoryId: selectedCategory.value as string,
   });
@@ -96,6 +96,7 @@ export default function Home() {
                 label: item.name,
                 value: item.id,
               }))}
+              isDisabled={isCategoryLoading}
               value={selectedCategory}
               setValue={(e) => setSelectedCategory(e)}
             />
@@ -103,6 +104,7 @@ export default function Home() {
           <div className="w-full md:w-96">
             <Search
               value={search}
+              isDisabled={isLoading}
               setValue={(e) => setSearch(e.target.value)}
             />
           </div>
@@ -125,7 +127,7 @@ export default function Home() {
         {!isLoading && (
           <div className="flex justify-center mt-6 md:mt-10">
             <Pagination
-              handleChange={handlePagination}
+              handlePageChange={handlePagination}
               totalPages={totalPage}
             />
           </div>
