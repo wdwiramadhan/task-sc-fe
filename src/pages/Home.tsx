@@ -8,9 +8,7 @@ import Pagination from "../components/pagination/Pagination";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState<Option | undefined>(
-    undefined
-  );
+  const [selectedCategory, setSelectedCategory] = useState<Option>();
   const [showBooks, setShowBooks] = useState<Book[]>([]);
   const [page, setPage] = useState(0);
   const [totalPage, setTotalPage] = useState(0);

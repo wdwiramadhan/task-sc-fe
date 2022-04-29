@@ -1,12 +1,17 @@
-import { ChangeEventHandler } from "react";
+import { ChangeEventHandler, InputHTMLAttributes } from "react";
 
-interface SearchProps {
+interface SearchProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
   isDisabled?: boolean;
   setValue: ChangeEventHandler<HTMLInputElement>;
 }
 
-export const Search = ({ value, setValue, isDisabled }: SearchProps) => {
+export const Search = ({
+  value,
+  setValue,
+  isDisabled,
+  ...props
+}: SearchProps) => {
   return (
     <div className="relative">
       <input
@@ -16,6 +21,7 @@ export const Search = ({ value, setValue, isDisabled }: SearchProps) => {
         disabled={isDisabled ?? false}
         placeholder="Search..."
         className="w-full border-[1px] border-gray-300 focus:outline-gray-300 focus:bg-gray-50 rounded-full text-sm text-gray-800 text-left pl-5 pr-16 py-2"
+        {...props}
       />
       <div className="absolute right-3 top-1 p-2">
         <svg
